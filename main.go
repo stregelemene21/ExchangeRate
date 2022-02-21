@@ -20,23 +20,13 @@ import (
 //структуры для парсинга xml файлов
 
 type Valute struct {
-	//XMLName  xml.Name `xml:"Valute"`
-	//NumCode  int      `xml:"NumCode"`
-	//CharCode string   `xml:"CharCode"`
 	Nominal string `xml:"Nominal"`
 	Name    string `xml:"Name"`
 	Value   string `xml:"Value"`
 }
 
 type ValCurs struct {
-	//XMLName xml.Name `xml:"ValCurs"`
-	//Date string
 	Valutes []Valute `xml:"Valute"`
-}
-
-//вывод пустой строки
-func EmptyString() {
-	fmt.Println("")
 }
 
 //функция для загрузки xml файла с сайта цбр
@@ -108,16 +98,12 @@ func StringConvert(s string) string {
 func main() {
 
 	//выводим описание и запрашиваем дату отсчета
-	EmptyString()
-	fmt.Println("Программа возвращает минимальное, максимальное и среднее значение курсов валют за 90 дней, предшествующих указанной дате")
-	EmptyString()
+	fmt.Println("\nПрограмма возвращает минимальное, максимальное и среднее значение курсов валют за 90 дней, предшествующих указанной дате\n")
 	fmt.Print("Введите дату в формате ДД/ММ/ГГГГ: ")
 	var startDate string
 	fmt.Scanln(&startDate)
-	EmptyString()
-	fmt.Println("Секунду...")
+	fmt.Println("\nСекунду...\n")
 	finishDate := (DateFinish(startDate))
-	EmptyString()
 
 	//список дат, данные по которым будем загружать
 
